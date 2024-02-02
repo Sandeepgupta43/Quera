@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quera</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Quera posts</h1>
+    <% for(let post of posts) {%>
+        <div class="post">
+            <h3 class="user">@<%=post.username%></h3>
+            <h4 class="content"><%=post.content%></h4>
+            <a href="http://localhost:8080/posts/<%=post.id%>">click for detail</a>
+            <a href="http://localhost:8080/posts/<%=post.id%>/edit">edit</a>
+            
+            <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                <button>Delete post</button>
+            </form>
+            
+        </div>
+    <%}%><br>
+    <a href="http://localhost:8080/posts/new">Create a new post</a>
+</body>
+</html>
